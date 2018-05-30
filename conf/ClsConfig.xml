@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigGroup brief="集群管理服务配置文件" name="CLS-CONFIG">
+	<ConfigItem brief="定义集群管理服务的名称" name="Name">
+		<value>集群管理服务</value>
+		<description>提供对CityServer集群的管理能力</description>
+		<defvalue />
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>String</typename>
+			<length>128</length>
+			<minvalue>0</minvalue>
+			<maxvalue>0</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>	
+</ConfigGroup>

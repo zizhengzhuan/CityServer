@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigGroup brief="系统主配置文件" name="SERVER-CONFIG">
+	<ConfigItem brief="任务线程池允许的最大线程数" name="TASKPOOL_SIZE">
+		<value>1000</value>
+		<description>超过后，将对任务进行排队</description>
+		<defvalue>500</defvalue>
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>long</typename>
+			<length>10</length>
+			<minvalue>100</minvalue>
+			<maxvalue>10000</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>
+	<ConfigItem brief="请求任务池的等待时间" name="TASKPOOL_SLEEPTIME">
+		<value>1</value>
+		<description>如任务池已满，任务需要等待的时间(单位:秒)</description>
+		<defvalue>10</defvalue>
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>int</typename>
+			<length>10</length>
+			<minvalue>100</minvalue>
+			<maxvalue>100</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>
+	<ConfigItem brief="请求任务池重试次数" name="TASKPOOL_REPEATCOUNT">
+		<value>1</value>
+		<description>如任务池已满，任务需要重新请求的次数，超过此数后将拒绝此任务执行</description>
+		<defvalue>3</defvalue>
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>int</typename>
+			<length>10</length>
+			<minvalue>100</minvalue>
+			<maxvalue>100</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>
+	<ConfigItem brief="SOAP裸服务支持的传输协议" name="SERVICE_DEPLOY_SOAP">
+		<value></value>
+		<description>
+			SOAP裸服务支持的传输协议(http,https,local),如为空，则都不支持
+		</description>
+		<defvalue>http</defvalue>
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>String</typename>
+			<length>15</length>
+			<minvalue>0</minvalue>
+			<maxvalue>0</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>
+	<ConfigItem brief="REST裸服务支持的传输协议" name="SERVICE_DEPLOY_REST">
+		<value>http</value>
+		<description>REST裸服务支持的传输协议(http,https,local),如为空，则都不支持</description>
+		<defvalue>http</defvalue>
+		<editable>1</editable>
+		<dispstyle>TextBox</dispstyle>
+		<datatype>
+			<typename>String</typename>
+			<length>15</length>
+			<minvalue>0</minvalue>
+			<maxvalue>0</maxvalue>
+		</datatype>
+		<selectdata />
+	</ConfigItem>
+	<ConfigItem brief="日志级别" name="LOGGER_LEVEL">
+		<value>info</value>
+		<description>日志级别(none,fatal,info,warn,debug)</description>
+		<defvalue>none</defvalue>
+		<editable>1</editable>
+		<dispstyle>ComboBox</dispstyle>
+		<datatype>
+			<typename>String</typename>
+			<length>15</length>
+			<minvalue>0</minvalue>
+			<maxvalue>0</maxvalue>
+		</datatype>
+		<selectdata>
+			<data>none</data>
+			<data>fatal</data>
+			<data>warn</data>
+			<data>info</data>
+			<data>debug</data>
+		</selectdata>
+	</ConfigItem>	
+	<ConfigItem brief="许可服务器地址" name="LICENSE_SERVER_IP">
+		<value>192.168.8.173</value>
+		<description>许可服务器地址列表</description>
+		<defvalue>192.168.8.173</defvalue>
+		<editable>1</editable>
+		<dispstyle>ComboBox</dispstyle>
+		<datatype>
+			<typename>String</typename>
+			<length>15</length>
+			<minvalue>0</minvalue>
+			<maxvalue>0</maxvalue>
+		</datatype>
+		<selectdata/>
+	</ConfigItem>		
+</ConfigGroup>
