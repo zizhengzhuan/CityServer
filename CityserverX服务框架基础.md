@@ -59,7 +59,7 @@
 
 
 
-![1531654612819](assets\1531654612819.png)
+![1531654612819](assets/1531654612819.png)
 
 
 
@@ -435,7 +435,7 @@ select * from user; delete user; -- where name = ?;
 
 ## 六(二)、Mybatis的常见标签
 
-![Mybatis的常见标签](assets\873899959.png)
+![Mybatis的常见标签](assets/873899959.png)
 
 ### 1. 定义sql语句
 
