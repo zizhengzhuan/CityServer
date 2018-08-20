@@ -31,5 +31,5 @@ city-server-parent
 
 ## 文档
 
-+ 开发手册：https://github.com/zizhengzhuan/CityServer/blob/document/CityserverX%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80.md
-
++ 开发手册：[CityserverX服务框架基础部分](https://github.com/zizhengzhuan/CityServer/blob/document/CityserverX%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80.md)
++ Maven私服使用:
