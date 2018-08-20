@@ -1,0 +1,58 @@
+server:
+  port: 8080
+  token-on: false
+
+spring:
+  datasource: &base
+    name: test
+    url: jdbc:sqlserver://192.168.8.183:1433;DatabaseName=cole_flower
+    username: zzht
+    password: zzht
+    type: org.apache.commons.dbcp2.BasicDataSource
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    host: 192.168.8.35
+    port: 6379
+    password: zzht@city
+    pool:
+      timeout: 10000
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+form:
+  datasource:
+     <<: *base
+     wsUrl: 192.168.8.183:1433:cole_flower
+     dbType: sql
+
+oms:
+  datasource:
+     <<: *base
+     wsUrl: 192.168.8.183:1433:cole_flower
+     type: sql
+     maxIdle: 20
+     minIdle: 1
+redis:
+  tokenConfig:
+
+    #token有效时间(单位:小时)
+    effectiveTime: 5
+
+    #redis 记录过期时间(单位:天)
+    recordExpireTime: 7
+
+    #登录名字段
+    loginField: loginName
+
+    #登录系统字段
+    sysField: client
+
+bpm:
+  datasource:
+     <<: *base
+  databaseSchemaUpdate: true
+  useActivitiIdentify: false
+  fileServiceUrl: http://192.168.8.183:8080/CityServer/rest/fileService/file
