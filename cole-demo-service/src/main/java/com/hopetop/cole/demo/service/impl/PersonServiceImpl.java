@@ -4,17 +4,12 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.hopetop.cole.demo.dao.PersonMapper;
 import com.hopetop.cole.demo.model.Person;
-import com.hopetop.cole.demo.model.PersonExample;
 import com.hopetop.cole.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * 类的描述
- *
- * @author: kunhour
- * @time: 2018/7/2 15:39
- */
+import java.util.List;
+
 @Service
 public class PersonServiceImpl implements PersonService {
 
@@ -22,10 +17,44 @@ public class PersonServiceImpl implements PersonService {
     PersonMapper personMapper;
 
     @Override
-    public Page<Person> queryPersonList(){
-        Page<Person> page=PageHelper.startPage(1,2);
-        personMapper.selectByExample(new PersonExample());
-        return  page;
+    public int addPerson(Person person) {
+        return personMapper.insert(person);
     }
 
+    @Override
+    public Person selectByPrimaryKey(Long id) {
+        return personMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Long id) {
+        return personMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateByPrimaryKey(Person person) {
+        return personMapper.updateByPrimaryKey(person);
+    }
+
+    @Override
+    public int insertSelective(Person person) {
+        return personMapper.insertSelective(person);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(Person person) {
+        return personMapper.updateByPrimaryKeySelective(person);
+    }
+
+    @Override
+    public Page<Person> queryPersonList(int pageNum, int pageSize) {
+        Page<Person> page=PageHelper.startPage(pageNum, pageSize);
+        personMapper.selectPersonList();
+        return page;
+    }
+
+    @Override
+    public List<Person> selectByName(String userName) {
+        return personMapper.selectByUserName(userName);
+    }
 }
