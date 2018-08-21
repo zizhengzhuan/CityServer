@@ -2,11 +2,12 @@
 
 ## 文档首页
 
-| 版本  | 时间       | 修改人 | 说明                                          |
-| ----- | ---------- | ------ | --------------------------------------------- |
-| 1.1.0 | 2018-08-02 | 柯尊超 | 1.增加Spring介绍<br />2.增加mybatis的相关知识 |
-| 1.0.0 | 2018-07-21 | 柯尊超 | 基于Springboot的全新框架                      |
-|       |            |        |                                               |
+| 版本  | 时间       | 修改人         | 说明                                          |
+| :---: | ---------- | -------------- | --------------------------------------------- |
+| 1.1.1 | 2018-08-21 | 柯尊超、杨汝婷 | 增加开发步骤说明                              |
+| 1.1.0 | 2018-08-02 | 柯尊超         | 1.增加Spring介绍<br />2.增加mybatis的相关知识 |
+| 1.0.0 | 2018-07-21 | 柯尊超         | 基于Springboot的全新框架                      |
+|       |            |                |                                               |
 
 [TOC]
 
@@ -59,7 +60,7 @@
 
 
 
-![1531654612819](assets/1531654612819.png)
+![1531654612819](.\assets\1531654612819.png)
 
 
 
@@ -79,20 +80,14 @@
 
   **maven项目管理示意图**
 
-```mermaid
-graph LR
-A(项目工程) -->B{本地仓库}
-B -->|配置私服|C(私服地址)
-C -->D[中央仓库]
-B -->|没有配置私服|D
-```
+![1534839174284](assets/1534839174284.png)
 
 ### 3.Maven对象模型组成
 
 　　Maven的项目对象模型（POM）组成四要素：
 
 + **groupId**：组织ID，定义项目属于组织，如`com.zzht`
-+ **artifactId**：项目或模块标识，如`sp-demo`
++ **artifactId**：项目或模块标识，如`cole-common`
 + **version**：定义当前项目的版本号
 + **packaging**：定义当前项目的打包方式
 
@@ -435,7 +430,7 @@ select * from user; delete user; -- where name = ?;
 
 ## 六(二)、Mybatis的常见标签
 
-![Mybatis的常见标签](assets/873899959.png)
+![Mybatis的常见标签](.\assets\873899959.png)
 
 ### 1. 定义sql语句
 
@@ -753,7 +748,7 @@ select * from student
 select * from user WHERE /*and*/ name = ‘xx’ and hobby= ‘xx’
 ```
 
-会为<trim>片段添加 "WHERE" 前缀，并忽略第一个 “and”  ；
+会为`<trim>`片段添加 "WHERE" 前缀，并忽略第一个 “and”  ；
 
 当然，避免出现“WHERE AND”还有其他方法，如下
 
@@ -1358,25 +1353,146 @@ public class Article implements Serializable {
 
 ### [Step1]克隆种子项目
 
+在浏览器输入github仓库地址：https://github.com/zizhengzhuan/CityServerX
+
+![mg](assets/clip_image001.png)
+
+点击Clone or download，复制仓库地址
+
+```bash
+https://github.com/zizhengzhuan/CityServerX.git
+```
+
+![2](assets/clip_image003.jpg)
+
+在e盘打开Git Bush–>输入克隆仓库命令
+
+```bash
+git clone https://github.com/kunhour/CityserverX.git
+```
+
+将项目克隆到本地磁盘
+
 ### [Step2]导入到idea
+
+导入到idea
+
+打开idea，导入项目:依次点击file-->open
+
+选择项目所在地址，点击ok确认导入
+
+![img](assets/clip_image001-1534839439825.png)
 
 ### [Step3]添加service模块
 
+添加service模块
+
+右键点击项目名，依次选择new-->Module，进入新建模块页面
+
+![IMG_256](assets/clip_image002.jpg)
+
+选择Maven，
+
+![IMG_256](assets/clip_image004.jpg)
+
+点击next进入下一步
+
+![IMG_256](assets/clip_image006.jpg)
+
+ 
+
+修改项目对应内容，点击next进入下一步，直到出现下面界面
+
+![IMG_256](assets/clip_image008.jpg)
+
+修改项目报标记：
+
+file-->Project Structure
+
+![IMG_256](assets/clip_image010.jpg)
+
+按如下步骤修改标记
+
+![IMG_256](assets/clip_image012.jpg)
+
+配置pom.xml文件
+
+![IMG_256](assets/clip_image014.jpg)
+
+ 
+
 ### [Step4]添加controller模块
+
+添加controller模块，步骤同第三步 3
 
 ### [Step5]启动与调试
 
+启动与调试：
+
+按如下步骤找到WebApplication文件，
+
+![img](assets/clip_image001-1534839482063.png)
+
+右键点击，然后点击Run ‘WebApplication’启动服务器
+
+![IMG_256](assets/clip_image003-1534839482063.jpg)
+
+如果idea控制台无报错信息且出现如下如所示信息，即表示服务器启动成功
+
+![IMG_256](assets/clip_image005.jpg)
+
+ 
+
 ### [Step6]验证接口
+
+**添加代码**
+
+1. **cole-demo-service**:src-->main-->java-->come.hopetop.cole.demo
+
+   文件夹下创建model， dao，service三个文件夹，分别用于实体类，数据操作以及业务逻辑实现文件
+
+2. **cole-demo-service**：src-->main-->resource-->come.hopetop.cole.demo.dao文件夹下创建mapper文件
+
+3. **cole-demo-controller**：src-->main-->java-->com.hopetop.cole.demo-->controller文件夹下创建controller文件
+
+**具体步骤**：
+
+**(1) 建立实体类Person**.java(personId(Long), userName(String), age(Integer), sex(Integer))，生成其构造方法以及getter,setter方法
+
+**(2)  建立PersonMapper.java接口(接口上注解`@Mapper`)**
+
+添加人员方法`int insert(Person person);`
+
+**(3)    配置PersonMapper.xml文件**
+
+![IMG_256](assets/clip_image001-1534839497164.png)
+
+**(4)  编写PersonService.java接口及其实现类PersonServiceImpl.java**
+
+PersonService.java
+
+```java
+int addPerson(Person person);
+
+PersonServiceImpl.java(类上注解@Service)
+
+```
+
+![IMG_256](assets/clip_image003-1534839497164.jpg)
+
+**(5)编写PersonController.java**
+
+ 类上加注解
+
+①`@RestController(@Controller + @ResponseBody)`
+
+②`RequestMapping()(用来处理请求地址映射)`
+
+![IMG_256](assets/clip_image005-1534839497164.jpg)
 
 ## 八、常见问题
 
-### 1.怎么分页查询？
-
-### 2.`@Transactional`事务不生效
-
-我加了`@Transactional`注解，为什么不生效？
-
-
+**常见问题请参见：[常见问题Wiki](https://github.com/zizhengzhuan/CityServerX/wiki)**
 
 ## 附录
 
