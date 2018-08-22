@@ -8,7 +8,7 @@ spring:
     url: jdbc:sqlserver://192.168.8.183:1433;DatabaseName=cole_flower
     username: zzht
     password: zzht
-    type: org.apache.commons.dbcp2.BasicDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
